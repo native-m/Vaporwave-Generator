@@ -1,2 +1,2 @@
 # Vaporwave-Generator
-A C++ Class for creating Ｖａｐｏｒｗａｖｅﾠ style text
+A C++ Class for creating unicode Ｖａｐｏｒｗａｖｅﾠ-style text
