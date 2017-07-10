@@ -9,12 +9,16 @@ private:
 	std::wstring m_vaporStr;
 	int m_vaporStrLen;
 	
+	void convertToVaporwave();
+	
 public:
 	Vaporwave();
-	Vaporwave(std::wstring vaporStr);
-	Vaporwave(wchar_t* vaporStr);
+	Vaporwave(const std::wstring vaporStr);
+	Vaporwave(const wchar_t* vaporStr);
+	Vaporwave(const Vaporwave& vaporStr);
 	
-	void operator=(const std::wstring& str);
+	void operator=(const std::wstring str);
+	void operator=(const wchar_t* str);
 	void operator=(const Vaporwave& str);
 	
 	std::wstring getString();
