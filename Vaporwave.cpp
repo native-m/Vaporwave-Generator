@@ -8,36 +8,42 @@ Vaporwave::Vaporwave()
 Vaporwave::Vaporwave(const std::wstring vaporStr)
 {
 	m_vaporStr = vaporStr;
+	m_vaporStrLen = vaporStr.length();
 	convertToVaporwave();
 }
 
 Vaporwave::Vaporwave(const wchar_t* vaporStr)
 {
 	m_vaporStr = vaporStr;
+	m_vaporStrLen = wcslen(vaporStr);
 	convertToVaporwave();
 }
 
 Vaporwave::Vaporwave(const Vaporwave& vaporStr)
 {
 	m_vaporStr = vaporStr.m_vaporStr;
+	m_vaporStrLen = vaporStr.m_vaporStrLen;
 	convertToVaporwave();
 }
 
 void Vaporwave::operator=(const std::wstring vaporStr)
 {
 	m_vaporStr = vaporStr;
+	m_vaporStrLen = vaporStr.length();
 	convertToVaporwave();
 }
 
 void Vaporwave::operator=(const wchar_t* vaporStr)
 {
 	m_vaporStr = vaporStr;
+	m_vaporStrLen = wcslen(vaporStr);
 	convertToVaporwave();
 }
 
 void Vaporwave::operator=(const Vaporwave& vaporStr)
 {
 	m_vaporStr = vaporStr.m_vaporStr;
+	m_vaporStrLen = vaporStr.m_vaporStrLen;
 	convertToVaporwave();
 }
 
@@ -53,7 +59,7 @@ int Vaporwave::getLength()
 
 void Vaporwave::convertToVaporwave()
 {
-	for(int i = 0; i < m_vaporStr; i++)
+	for(int i = 0; i < m_vaporStrLen; i++)
 	{
 		switch(m_vaporStr[i])
 		{
@@ -63,8 +69,8 @@ void Vaporwave::convertToVaporwave()
 			m_vaporStr[i] = m_vaporStr[i];
 			break;
 		default:
-			if(ret[i] >= 0x20 && ret[i] <= 0xC0)
-				m_vaporStr[i] = (wchar_t)(0xFF00 | m_vaporStr[i] - 0x0020);
+			if(m_vaporStr[i] >= 0x20 && m_vaporStr[i] <= 0xC0)
+				m_vaporStr[i] = (wchar_t)((0xFF00 | m_vaporStr[i]) - 0x0020);
 			else
 				m_vaporStr[i] = m_vaporStr[i];
 			break;
