@@ -17,7 +17,8 @@ public:
 	void operator=(const std::wstring& str);
 	void operator=(const Vaporwave& str);
 	
-	std::wstring toVaporwaveString();
+	std::wstring getString();
+	int getLength();
 	
 	operator std::wstring();
 	operator const std::wstring() const;
