@@ -53,20 +53,20 @@ int Vaporwave::getLength()
 
 void Vaporwave::convertToVaporwave()
 {
-	for(int i = 0; i < len; i++)
+	for(int i = 0; i < m_vaporStr; i++)
 	{
 		switch(m_vaporStr[i])
 		{
 		case L' ':
 		case L'\r':
 		case L'\n':
-			ret[i] = ret[i];
+			m_vaporStr[i] = m_vaporStr[i];
 			break;
 		default:
 			if(ret[i] >= 0x20 && ret[i] <= 0xC0)
-				ret[i] = (wchar_t)(0xFF00 | ret[i] - 0x0020);
+				m_vaporStr[i] = (wchar_t)(0xFF00 | m_vaporStr[i] - 0x0020);
 			else
-				ret[i] = ret[i];
+				m_vaporStr[i] = m_vaporStr[i];
 			break;
 		}
 	}
