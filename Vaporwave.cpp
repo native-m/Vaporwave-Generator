@@ -66,13 +66,12 @@ void Vaporwave::convertToVaporwave()
 		case L' ':
 		case L'\r':
 		case L'\n':
-			m_vaporStr[i] = m_vaporStr[i];
-			break;
+			continue;
 		default:
 			if(m_vaporStr[i] >= 0x20 && m_vaporStr[i] <= 0xC0)
 				m_vaporStr[i] = (wchar_t)((0xFF00 | m_vaporStr[i]) - 0x0020);
 			else
-				m_vaporStr[i] = m_vaporStr[i];
+				continue;
 			break;
 		}
 	}
